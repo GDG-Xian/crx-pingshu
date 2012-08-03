@@ -1,41 +1,105 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1"> 
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <title>听评书</title>
-        <link rel="stylesheet" href="libs/jquery-mobile/jquery.mobile-1.1.1.min.css" />
         <style type="text/css">
-            body { width: 380px; }
+            body { width: 300px; }
+            dl { height: 400px; overflow-y: auto; }
+            .hide { display: none; }
+            dt { background: #EBEFFA; font-weight: bold; }
+            dd { -webkit-margin-start: 20px; }
+            ul { list-style: none; margin: 0; padding: 0; }
         </style>
-        <script type="text/javascript" src="libs/jquery/jquery-1.7.2.min.js"></script>
-        <script type="text/javascript" src="libs/jquery-mobile/jquery.mobile-1.1.1.min.js"></script>
-        <script type="text/javascript">
-$('#mylist').listview();
-        </script>
     </head>
     <body>
-        <div data-role="page">
-            <header data-role="header" data-theme="c">
-                <navs>
-                    <a href="#play-list-wrapper">播放列表</a>
-                    <a href="#album-list-wrapper">专辑列表</a>
-                </navs>
+        <header>
+            <navs>
+                <a href="#play-list-wrapper">播放列表</a>
+                <a href="#album-list-wrapper">专辑列表</a>
+            </navs>
+        </header>
+        <section id="play-list-wrapper" class="hide">
+        </section>
+        <section id="album-list-wrapper">
+            <header>
+            <input type="search" placeholder="输入搜索关键字" />
+            <button>搜索</button>
             </header>
-            <div data-role="content">
-                <section id="album-list-wrapper">
-                    <ul data-role="listview" data-filter="true" data-filter-placeholder="搜索评书" data-filter-theme="c" data-theme="c" data-divider-theme="c">
-                        <li data-role="list-divider">单田芳评书</li>
+            <dl id="album-list">
+                <dt>单田芳评书</dt>
+                <dd>
+                    <ul>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
                         <li><a href="#">单田芳_说唐后传</a></li>
                         <li><a href="#">单田芳_说唐后传</a></li>
                         <li><a href="#">单田芳_说唐后传</a></li>
                         <li><a href="#">单田芳_说唐后传</a></li>
                     </ul>
-                </section>
-            </div>
-            <footer data-role="footer" data-theme="c">
-            footer
-            </footer>
-        </div>
+                </dd>
+                <dt>单田芳评书</dt>
+                <dd>
+                    <ul>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                    </ul>
+                </dd>
+                <dt>单田芳评书</dt>
+                <dd>
+                    <ul>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                    </ul>
+                </dd>
+                <dt>单田芳评书</dt>
+                <dd>
+                    <ul>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                    </ul>
+                </dd>
+                <dt>单田芳评书</dt>
+                <dd>
+                    <ul>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                        <li><a href="#">单田芳_说唐后传</a></li>
+                    </ul>
+                </dd>
+            </dl>
+        </section>
+        <footer>
+        </footer>
     </body>
 </html>
