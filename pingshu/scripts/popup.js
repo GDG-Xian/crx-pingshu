@@ -1,10 +1,15 @@
 var app = chrome.extension.getBackgroundPage();
 var tpl = {
-    genre: '<dt id="genre-%{ID}">%{NAME}</dt><dd><ul class="list"></ul></dd>',
-    album: '<li id="album-%{ID}"><a href="#">%{NAME}</a></li>'
+    genre: '<dt id="genre-%{ID}" class="genre">%{NAME}</dt><dd><ul class="list"></ul></dd>',
+    album: '<li id="album-%{ID}" class="album"><a href="#">%{NAME}</a></li>'
 };
 
 $(function() {
+    $('.genre').live('click', function() {
+        $(this).next('dd').slideToggle('fast'); 
+    });
+
+
     app.get_genres(function(tx, rs) {
         var $album_list = $('#album-list');
         for (var i = 0; i < rs.rows.length; i++) {

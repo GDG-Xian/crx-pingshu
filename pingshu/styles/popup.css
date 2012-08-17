@@ -93,12 +93,14 @@ section dt {
     background-image: -webkit-linear-gradient(top, #F3F3F3 0%, #BBB 100%);
     padding: 3px 4px;
     color: #888;
+    cursor: pointer;
 }
 
 section .list li {
     border-bottom: 1px solid #F3F3F3;
     margin: 1px 1px 0 1px;
     padding: 2px 4px;
+    cursor: pointer;
 }
 
 section .list li:hover {
