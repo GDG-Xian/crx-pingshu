@@ -78,7 +78,7 @@ input[type=search] {
     border-left: 2px solid #CCC;
     border-right: 2px solid #DDD;
     border-bottom: 2px solid #DDD;
-    background-image: url(img/icon-search.png);
+    background-image: url(../images/icon-search.png);
     background-repeat: no-repeat;
     background-position: 5px center;
     background-size: 12px 12px;
