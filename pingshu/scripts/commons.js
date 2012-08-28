@@ -23,3 +23,7 @@ function get_sql(key) {
     var pre = document.getElementById(key);
     return pre ? pre.innerHTML : null;
 }
+
+function tidy_html(html) {
+    return html.replace(/[\s\S]*?<body>|<\/body>[\s\S]*|<script[\s\S]*?<\/script>|<img[\s\S]*?>/ig, '');
+}
