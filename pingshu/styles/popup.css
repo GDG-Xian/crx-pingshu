@@ -1,5 +1,5 @@
 body { width: 300px; margin: 0; padding: 0; }
-dl { 
+#track-list, #album-list { 
     height: 400px; 
     overflow-y: auto; 
     margin: 0;
