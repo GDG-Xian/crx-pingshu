@@ -27,3 +27,13 @@ function get_sql(key) {
 function tidy_html(html) {
     return html.replace(/[\s\S]*?<body>|<\/body>[\s\S]*|<script[\s\S]*?<\/script>|<img[\s\S]*?>/ig, '');
 }
+
+function is_empty(value) {
+    switch(typeof(value)) {
+        case 'string':
+            return value && !/\s*/mg.test(value);
+        default:
+            return value;
+        // TODO: 完善 is_empty() 方法，加入 map, list 支持
+    }
+}

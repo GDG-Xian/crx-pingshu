@@ -38,6 +38,7 @@ $(function() {
     });
 
     $('.album').live('click', function() {
+        // TODO: 点击专辑时显示加载状态
         var $this = $(this);
         var album = $this.data();
         app.get_tracks(album, function(tracks) {
@@ -49,6 +50,15 @@ $(function() {
         });
     });
     
+    $('.track').live('click', function() {
+        var $this = $(this);
+        var track = $this.data();
+        app.play_track(track, function() {
+            // TODO: 处理播放回调
+            console.log('playing'); 
+        });
+    });
+
     app.get_genres(function(tx, rs) {
         var $album_list = $('#album-list');
         for (var i = 0; i < rs.rows.length; i++) {
@@ -72,4 +82,6 @@ $(function() {
             }
         });
     }
+
+    // TODO: 输入关键字时搜索评书专辑
 });

@@ -102,5 +102,13 @@ function get_tracks(album, callback) {
         }, db_error); 
     });
 }
+
+function play_track(track, callback) {
+    // TODO: 获取播放地址并播放
+    console.log(track);
+    callback();
+}
+
 init_db();
+// TODO: 检测并仅在安装扩展时创建数据库
 // fetch_data();
