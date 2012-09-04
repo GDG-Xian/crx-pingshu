@@ -10,13 +10,18 @@
   },
   "browser_action": {
     "default_icon": "icons/icon_48.png",
-    "default_title": "听评书",
-    "default_popup": "popup.html"
+    "default_title": "听评书"
   },
   "background": {
     "page": "background.html"
   },
+  "content_scripts": [
+    {
+      "matches": ["http://*.5ips.net/*"],
+      "js": ["js/jquery-1.8.0.min.js", "js/contentscript.js"]
+    }
+  ],
   "permissions": [
-    "tabs", "http://www.5ips.net/*"
+    "tabs", "http://*.5ips.net/*"
   ]
 }
