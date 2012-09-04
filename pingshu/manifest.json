@@ -18,10 +18,12 @@
   "content_scripts": [
     {
       "matches": ["http://*.5ips.net/*"],
-      "js": ["js/jquery-1.8.0.min.js", "js/contentscript.js"]
+      "css": ["css/contentscript.css"],
+      "js": ["js/jquery-1.8.0.min.js", "js/commons.js", "js/contentscript.js"],
+      "run_at": "document_start"
     }
   ],
   "permissions": [
-    "tabs", "http://*.5ips.net/*"
+    "tabs", "http://*.5ips.net/*", "http://*.52ps.cn/*"
   ]
 }
