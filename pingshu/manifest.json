@@ -1,8 +1,8 @@
 {
   "name": "听评书",
-  "version": "1.0",
+  "version": "1.1",
   "manifest_version": 2,
-  "description": "听评书",
+  "description": "我爱评书网站(http://www.5ips.net)增强扩展，支持在Chrome浏览器下播放评书",
   "icons": {
     "128": "icons/icon_128.png",
     "64": "icons/icon_64.png",
