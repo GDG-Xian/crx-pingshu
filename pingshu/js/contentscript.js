@@ -1,6 +1,10 @@
+// 当前地址、下一回地址、下载地址
+var curr_url, next_url, down_url;
+
 PATTERNS = {
     PLAYER_PAGE: /http\:\/\/.*\.5ips\.net\/car_(\d+)_(\d+)\.htm/ig,
-    DOWN_LINK: /<li>下载方式一（普通下载）：<a href=\"(.*?)\">/ig
+    DOWN_LINK: /<li>下载方式一（普通下载）：<a href=\"(.*?)\">/ig,
+    NEXT_LINK: /<a.*href=\"(\/car_\d+_\d+\.htm)\".*>下一回<\/a>/ig
 };
 
 TPLS = {
@@ -20,14 +24,21 @@ function dispatcher(url) {
 }
 
 function player_page_handler(detail) {
-    var down_url = detail.url.replace('/car_', '/down_');
+    // 获取下一回的链接
+    var match_next = PATTERNS.NEXT_LINK.exec(document.body.innerHTML);
+    next_url = match_next && match_next[1];
+    next_url = next_url && encodeURI(curr_url.replace(/(\/car_\d+_\d+\.htm)/ig, next_url));
+    console.log('next_url', next_url);
+
+    down_url = detail.url.replace('/car_', '/down_');
     $.get(down_url, function(html) {
         var match = PATTERNS.DOWN_LINK.exec(html);
-        var mp3_url = match && match[1];
+        var mp3_url = match && encodeURI(match[1]);
         console.log(mp3_url);
-        
+        return;
+
         // 初始化播放器
-        $player = $(fmt(TPLS.AUDIO, encodeURI(mp3_url)));
+        $player = $(fmt(TPLS.AUDIO, mp3_url));
         $('#czplayer').parent().css('background-image', 'none').empty().append($player);
     }).error(function(xhr, textStatus, error) {
         console.error(error);
@@ -39,6 +50,8 @@ function get_mp3_url(url) {
 }
 
 $(function() {
+    curr_url = location.toString();
+
     // 添加顶部工具条
     $toolbar = $('<div id="pingshu-toolbar">听评书 V1.0</div>');
     $toolbar.appendTo($(document.body));
