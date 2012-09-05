@@ -4,7 +4,7 @@ PATTERNS = {
 };
 
 TPLS = {
-    AUDIO: '<audio id="pingshu-player" autoplay="autoplay" controls="controls" src=""></audio>'
+    AUDIO: '<audio id="pingshu-player" autoplay="autoplay" controls="controls" src="%{1}"></audio>'
 };
 
 var $toolbar, $player;
@@ -25,7 +25,10 @@ function player_page_handler(detail) {
         var match = PATTERNS.DOWN_LINK.exec(html);
         var mp3_url = match && match[1];
         console.log(mp3_url);
-        $player.attr('src', encodeURI(mp3_url)); 
+        
+        // 初始化播放器
+        $player = $(fmt(TPLS.AUDIO, encodeURI(mp3_url)));
+        $('#czplayer').parent().css('background-image', 'none').empty().append($player);
     }).error(function(xhr, textStatus, error) {
         console.error(error);
     });
@@ -36,10 +39,6 @@ function get_mp3_url(url) {
 }
 
 $(function() {
-    // 初始化播放器
-    $player = $(TPLS.AUDIO);
-    $('#czplayer').parent().css('background-image', 'none').empty().append($player);
-    
     // 添加顶部工具条
     $toolbar = $('<div id="pingshu-toolbar">听评书 V1.0</div>');
     $toolbar.appendTo($(document.body));
