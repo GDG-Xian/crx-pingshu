@@ -8,7 +8,7 @@ PATTERNS = {
 };
 
 TPLS = {
-    AUDIO: '<audio id="pingshu-player" autoplay="autoplay" controls="controls" src="%{1}"></audio>'
+    AUDIO: '<audio id="pingshu-player" autoplay="autoplay" controls="controls"></audio>'
 };
 
 var $toolbar, $player;
@@ -35,18 +35,24 @@ function player_page_handler(detail) {
         var match = PATTERNS.DOWN_LINK.exec(html);
         var mp3_url = match && encodeURI(match[1]);
         console.log(mp3_url);
-        return;
 
         // 初始化播放器
-        $player = $(fmt(TPLS.AUDIO, mp3_url));
-        $('#czplayer').parent().css('background-image', 'none').empty().append($player);
+        $player_container = $('#czplayer');
+        $player_container.css('background-image', 'none');
+        $player_container.html(TPLS.AUDIO);
+
+        // 初始化播放事件并开始播放评书
+        $player = $('#pingshu-player');
+        if (next_url) {
+            $player.on('ended', function() {
+                console.log('Navigate to next:', next_url);
+                window.location = next_url; 
+            }); 
+        }
+        $player.attr('src', mp3_url);
     }).error(function(xhr, textStatus, error) {
         console.error(error);
     });
-}
-
-function get_mp3_url(url) {
-    var dl_url = url.replace('/car_', '/down_');
 }
 
 $(function() {
@@ -56,5 +62,5 @@ $(function() {
     $toolbar = $('<div id="pingshu-toolbar">听评书 V1.0</div>');
     $toolbar.appendTo($(document.body));
 
-    dispatcher(location.toString());
+    dispatcher(curr_url);
 });
